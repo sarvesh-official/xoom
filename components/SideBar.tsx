@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 
 const SideBar = () => {
   const pathname = usePathname();
@@ -14,16 +13,16 @@ const SideBar = () => {
       <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((link) => {
           const isActive =
-            pathname === link.route || pathname.startsWith(link.route);
+            pathname === link.route || pathname.startsWith(`${link.route}/`);
 
           return (
             <Link
               href={link.route}
               key={link.label}
               className={cn(
-                "flex gap-4 items-center p-4 rounded-lg justify-center",
+                "flex gap-4 items-center p-4 rounded-lg w-full max-w-60",
                 {
-                  "bg-blue1": isActive,
+                  "bg-blue-1": isActive,
                 }
               )}
             >

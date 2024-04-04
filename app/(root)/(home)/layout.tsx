@@ -1,7 +1,13 @@
 import NavBar from "@/components/NavBar";
 import SideBar from "@/components/SideBar";
+import { Metadata } from "next";
 import React, { ReactNode } from "react";
 
+export const metadata: Metadata = {
+  title: "Xoom",
+  description: "Video Conferencing Application",
+  icons: "/icons/logo.svg",
+};
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
     <main className="relative">
@@ -12,7 +18,6 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
           <div className="w-full">{children}</div>
         </section>
       </div>
-      {children}
     </main>
   );
 };
